@@ -50,6 +50,10 @@ class Game
 
 			reply = STDIN.gets
 			reply.chop!
+      if reply=="cheat"
+        puts "The random number is #{number}"
+        next
+      end
 			reply = reply.to_i
 			if reply < 1 or reply > 1000 then
         puts "Invalid guess has been made! You entered #{reply}."
