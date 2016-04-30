@@ -52,6 +52,8 @@ class Game
 			reply.chop!
 			reply = reply.to_i
 			if reply < 1 or reply > 1000 then
+        puts "Invalid guess has been made! You entered #{reply}."
+        puts "The valid guess should greater than or equal to 0 and less than or equal to 1000"
 				redo # redo the ciurrent iteration of the loop
 			end
       counter+=1
