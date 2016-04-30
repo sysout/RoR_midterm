@@ -40,7 +40,10 @@ class Game
 
 	def play_game
 		number = generate_number
-
+    # A.	Currently, the game allows players to play as many times as they wish. It does not provide any feedback
+    # on how  the players are doing, however. Modify the game so that it keeps track of the number of games played
+    # as well as the average number of guesses made per game.
+    counter=0
 		loop do
 			Console_Screen.cls
 			print "\nEnter your guess and press the enter key: "
@@ -48,11 +51,10 @@ class Game
 			reply = STDIN.gets
 			reply.chop!
 			reply = reply.to_i
-
 			if reply < 1 or reply > 100 then
 				redo # redo the ciurrent iteration of the loop
 			end
-
+      counter+=1
 			if reply == number then
 				Console_Screen.cls
 				print "You have guessed the number! Press Enter to continue."
@@ -67,9 +69,8 @@ class Game
 				print "Your guess is too high! Press enter to continue."
 				Console_Screen.pause
 			end
-
-		end
-			
+    end
+    counter
 	end
 
 	def display_credits
@@ -86,6 +87,8 @@ class Game
 	SQ.display_greeting
 
 	answer = ""
+
+  ca=[]
 
 	loop do
 		Console_Screen.cls
@@ -107,12 +110,10 @@ class Game
 
 	else
 		SQ.display_instruction
-
 		loop do
-			SQ.play_game
-
+      ca << SQ.play_game
 			Console_Screen.cls
-
+      puts "You have played #{ca.length} times, the average number of guesses is #{ca.reduce(:+) / ca.length.to_f}"
 			print "Would you like to play again? (y/n): "
 
 			playAgain = STDIN.gets
