@@ -71,6 +71,10 @@ class Game
 				print "Your guess is too high! Press enter to continue."
 				Console_Screen.pause
 			end
+      if counter==10
+        puts "You tried 10 times! You lose!"
+        break
+      end
     end
     counter
 	end
