@@ -35,7 +35,7 @@ class Game
 	end
 
 	def generate_number
-		return randomNo = 1 + rand(100)
+		return randomNo = 1 + rand(1000)
 	end
 
 	def play_game
@@ -51,7 +51,7 @@ class Game
 			reply = STDIN.gets
 			reply.chop!
 			reply = reply.to_i
-			if reply < 1 or reply > 100 then
+			if reply < 1 or reply > 1000 then
 				redo # redo the ciurrent iteration of the loop
 			end
       counter+=1
